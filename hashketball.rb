@@ -136,6 +136,12 @@ end
 #
 # good_practices()
 
-def num_points_scored(player_name)
-
+def num_points_scored(name)
+  game_hash().each do |location, team_data|
+    team_data[:players].each do |player_name, player_stat|
+      if name == player_name
+        return player_stat[:points]
+      end
+    end
+  end
 end
